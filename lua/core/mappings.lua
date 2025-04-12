@@ -25,3 +25,6 @@ vim.keymap.set("n", "Q", "<nop>")
 
 -- Terminal Mode Exit Remap
 -- vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+-- Show diagnostics
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
