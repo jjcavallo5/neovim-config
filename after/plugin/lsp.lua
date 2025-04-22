@@ -17,6 +17,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+local util = require("lspconfig.util")
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
@@ -24,8 +25,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {
 	  'bashls',
 	  'html',
-	  'eslint',
-	  'pylsp',
+	  'pyright',
 	  'ts_ls',
 	  'lua_ls',
   },
@@ -56,6 +56,14 @@ require('mason-lspconfig').setup({
         }
       })
     end,
+    ts_ls = function()
+        require("lspconfig").ts_ls.setup({
+            root_dir = util.root_pattern("tsconfig.json", "package.json", ".git"),
+            on_attach = function()
+                print("TS LSP attached!")
+            end
+        })
+    end
   }
 })
 
