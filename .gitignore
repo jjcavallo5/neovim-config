@@ -1,1 +1,9 @@
-/plugin/
+*/
+
+!nvim/
+!nvim/**
+!tmux/
+!tmux/**
+
+tmux/plugins/
+nvim/plugins/
